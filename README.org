@@ -8,7 +8,7 @@ Advent of Code is an Advent calendar of small programming puzzles for a variety 
 This repository is built upon:
 
   1. [[https://github.com/gobanos/cargo-aoc][cargo-aoc]]:  a CLI tool for automated input downloading, running and benchmarking the solutions.
-  2. [[https://github.com/servo/rust-fnv][rust-fnv]]: Fowler–Noll–Vo hash function which is faster than standard `HashSet`, `HashMap` for smaller inputs.
+  2. [[https://github.com/servo/rust-fnv][rust-fnv]]: Fowler–Noll–Vo hash function which is faster than standard =HashSet=, =HashMap= for smaller inputs.
   3. [[https://github.com/frozenlib/parse-display][parse-display]]: A simple procedural macro for parsing strings 
      
 * Usage
