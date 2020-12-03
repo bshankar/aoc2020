@@ -1,0 +1,20 @@
+#+TITLE: Advent Of Code 2020
+
+Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language. This repository features *fast* solutions written in Rust.
+
+[[https://adventofcode.com/2020/about][About Advent Of Code]]
+
+
+This repository is built upon:
+
+  1. [[https://github.com/gobanos/cargo-aoc][cargo-aoc]]:  a CLI tool for automated input downloading, running and benchmarking the solutions.
+  2. [[https://github.com/servo/rust-fnv][rust-fnv]]: Fowler–Noll–Vo hash function which is faster than standard `HashSet`, `HashMap` for smaller inputs.
+  3. [[https://github.com/frozenlib/parse-display][parse-display]]: A simple procedural macro for parsing strings 
+     
+* Usage
+
+#+begin_src sh
+$ cargo aoc input [-d <day>]  # fetch input
+$ cargo aoc [-d <day>]  # Run solutions for a day
+$ cargo aoc bench -o  # Benchmark and open the results
+#+end_src
