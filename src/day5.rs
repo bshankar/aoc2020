@@ -1,7 +1,7 @@
 use aoc_runner_derive::{aoc, aoc_generator};
 
 #[aoc_generator(day5)]
-fn parse_input_day3(input: &str) -> Result<Vec<String>, String> {
+fn parse_input_day5(input: &str) -> Result<Vec<String>, String> {
     Ok(input.lines().map(|s| s.to_owned()).collect())
 }
 

@@ -2,7 +2,7 @@ use aoc_runner_derive::{aoc, aoc_generator};
 use fnv::FnvHashMap;
 
 #[aoc_generator(day4)]
-fn parse_input_day3(input: &str) -> Result<Vec<FnvHashMap<String, String>>, String> {
+fn parse_input_day4(input: &str) -> Result<Vec<FnvHashMap<String, String>>, String> {
     let mut passports = Vec::new();
     let mut current = FnvHashMap::default();
 
