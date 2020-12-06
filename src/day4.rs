@@ -1,24 +1,18 @@
 use aoc_runner_derive::{aoc, aoc_generator};
 use fnv::FnvHashMap;
+use itertools::Itertools;
 
 #[aoc_generator(day4)]
 fn parse_input_day4(input: &str) -> Result<Vec<FnvHashMap<String, String>>, String> {
-    let mut passports = Vec::new();
-    let mut current = FnvHashMap::default();
-
-    for line in input.lines() {
-        if line == "" {
-            passports.push(current);
-            current = FnvHashMap::default();
-        } else {
-            line.split_whitespace().for_each(|kv| {
-                let res: Vec<_> = kv.split(':').collect();
-                current.insert(res[0].to_owned(), res[1].to_owned());
-            })
-        }
-    }
-    passports.push(current);
-    Ok(passports)
+    Ok(input
+        .split("\n\n")
+        .map(|g| {
+            g.split_whitespace()
+                .flat_map(|kv| kv.split(':').map(|e| e.to_owned()))
+                .tuples()
+                .collect()
+        })
+        .collect())
 }
 
 fn is_valid(pass: &FnvHashMap<String, String>) -> bool {

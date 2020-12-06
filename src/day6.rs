@@ -3,23 +3,18 @@ use fnv::FnvHashSet;
 
 #[aoc_generator(day6)]
 fn parse_input_day6(input: &str) -> Result<Vec<Vec<FnvHashSet<char>>>, String> {
-    let mut answers = Vec::new();
-    let mut current = Vec::new();
-
-    for line in input.lines() {
-        if line == "" {
-            answers.push(current);
-            current = Vec::new();
-        } else {
-            let ans = line
-                .chars()
-                .filter(|c| c.is_ascii_alphabetic() && c.is_lowercase())
-                .collect::<FnvHashSet<_>>();
-            current.push(ans);
-        }
-    }
-    answers.push(current);
-    Ok(answers)
+    Ok(input
+        .split("\n\n")
+        .map(|g| {
+            g.lines()
+                .map(|a| {
+                    a.chars()
+                        .filter(|c| c.is_ascii_alphabetic() && c.is_lowercase())
+                        .collect()
+                })
+                .collect()
+        })
+        .collect())
 }
 
 #[aoc(day6, part1)]
