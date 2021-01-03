@@ -32,29 +32,23 @@ fn get_neighbors(cube: &Point) -> FnvHashSet<Point> {
 }
 
 fn active_neighbors(cube: &Point, active: &FnvHashSet<Point>) -> usize {
-    get_neighbors(cube)
-        .iter()
-        .filter(|c| active.contains(c))
-        .count()
+    get_neighbors(cube).intersection(active).count()
 }
 
 fn cycle(active: &FnvHashSet<Point>) -> FnvHashSet<Point> {
-    let mut to_remove = Vec::new();
-    let mut to_add = Vec::new();
+    let mut to_remove = FnvHashSet::default();
+    let mut to_add = FnvHashSet::default();
 
     for cube in active.iter() {
         if ![2, 3].contains(&active_neighbors(cube, active)) {
-            to_remove.push(cube);
+            to_remove.insert(cube);
         }
 
-        to_add.extend(get_neighbors(cube).iter().filter(|c| {
-            !active.contains(c)
-                && get_neighbors(c)
-                    .iter()
-                    .filter(|n| active.contains(n))
-                    .count()
-                    == 3
-        }))
+        to_add.extend(
+            get_neighbors(cube)
+                .difference(active)
+                .filter(|c| active_neighbors(c, active) == 3),
+        )
     }
 
     active
