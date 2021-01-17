@@ -15,6 +15,7 @@ Advent of Code is an Advent calendar of small programming puzzles for a variety 
 | [[https://adventofcode.com/2020/day/12][Day 12: Rain Risk]]               | [[src/day12.rs][✓]]        |
 | [[https://adventofcode.com/2020/day/15][Day 15: Rambunctious Recitation]] | [[src/day15.rs][✓]]        |
 | [[https://adventofcode.com/2020/day/17][Day 17: Conway Cubes]]            | [[src/day17.rs][✓]]        |
+| [[https://adventofcode.com/2020/day/22][Day 22: Crab Combat]]            | [[src/day22.rs][✓]]        |
 
 This repository is built upon:
 
